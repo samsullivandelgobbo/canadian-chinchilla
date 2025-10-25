@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Heart, DollarSign, Package, Home, Users, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Donate - Canadian Chinchilla Rescue",
+  title: "Donate",
   description: "Support our mission to rescue and rehome chinchillas across Canada.",
 };
 

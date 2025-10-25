@@ -1,7 +1,7 @@
 import { Heart, Users, HomeIcon, Shield } from "lucide-react";
 
 export const metadata = {
-  title: "About Us - Canadian Chinchilla Rescue",
+  title: "About Us",
   description:
     "Learn about our mission to rescue and rehome chinchillas across Canada.",
 };

@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Heart, Users, Home, Calendar, Clock, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Volunteer - Canadian Chinchilla Rescue",
+  title: "Volunteer",
   description: "Join our volunteer team and help chinchillas in need across Canada.",
 };
 

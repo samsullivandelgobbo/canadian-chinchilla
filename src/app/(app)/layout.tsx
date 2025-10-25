@@ -19,6 +19,32 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://canadianchinchillarescue.ca'),
+  title: {
+    default: "Canadian Chinchilla Rescue - Every Chinchilla Deserves a Home",
+    template: "%s | Canadian Chinchilla Rescue",
+  },
+  description:
+    "Providing loving homes for chinchillas in need across Canada. Adopt, foster, or support our mission to rescue and rehome chinchillas.",
+  keywords: [
+    "chinchilla",
+    "rescue",
+    "adoption",
+    "pets",
+    "Canada",
+    "chinchilla care",
+    "adopt chinchilla",
+    "foster chinchilla",
+    "exotic pets",
+  ],
+  authors: [{ name: "Canadian Chinchilla Rescue" }],
+  creator: "Canadian Chinchilla Rescue",
+  publisher: "Canadian Chinchilla Rescue",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -34,14 +60,30 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/site.webmanifest",
-  title: "Canadian Chinchilla Rescue",
-  description: "Providing loving homes for chinchillas in need across Canada.",
-  keywords: "chinchilla, rescue, adoption, pets, Canada",
   openGraph: {
-    images: ["/og-image.png"],
+    type: "website",
+    locale: "en_CA",
+    url: "https://canadianchinchillarescue.ca",
+    title: "Canadian Chinchilla Rescue",
+    description: "Every Chinchilla Deserves a Home",
+    siteName: "Canadian Chinchilla Rescue",
   },
   twitter: {
-    images: ["/og-image.png"],
+    card: "summary_large_image",
+    title: "Canadian Chinchilla Rescue",
+    description: "Every Chinchilla Deserves a Home",
+    creator: "@canadianchinchillarescue",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

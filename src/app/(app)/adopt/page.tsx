@@ -9,9 +9,9 @@ import {
 import { getAvailableChinchillas, generateSlug } from "@/lib/payload/chinchillas";
 
 export const metadata = {
-  title: "Adopt a Chinchilla - Canadian Chinchilla Rescue",
+  title: "Adopt a Chinchilla",
   description:
-    "Adopt a chinchilla from Canadian Chinchilla Rescue. We have a variety of chinchillas available for adoption.",
+    "Browse our available chinchillas and find your perfect companion. We have a variety of chinchillas available for adoption.",
 };
 
 export const revalidate = 60;

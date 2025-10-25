@@ -4,6 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Emergency Chinchilla Care",
+  description:
+    "Emergency resources and veterinary clinics for chinchillas in distress. Get immediate help for heat stroke, respiratory issues, and injuries.",
+};
+
 export default function EmergencyPage() {
   return (
     <div className="min-h-screen">

@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Chinchilla Care Guide - Canadian Chinchilla Rescue",
+  title: "Chinchilla Care Guide",
   description:
     "Complete guide to caring for your chinchilla including housing, diet, temperature, and health care.",
 };

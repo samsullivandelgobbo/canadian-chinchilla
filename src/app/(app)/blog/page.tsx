@@ -2,9 +2,15 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import Link from 'next/link'
 import Image from 'next/image'
+import type { Metadata } from 'next'
 import type { Blog, Media } from '@/payload-types'
 
 export const revalidate = 300 // Revalidate every 5 minutes
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: 'Tips, stories, and updates from Canadian Chinchilla Rescue',
+}
 
 async function getBlogPosts() {
   const payload = await getPayload({ config })

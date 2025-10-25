@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Heart, Home, Clock, Users, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Foster - Canadian Chinchilla Rescue",
+  title: "Foster",
   description: "Become a foster parent and provide temporary care for chinchillas in need.",
 };
 

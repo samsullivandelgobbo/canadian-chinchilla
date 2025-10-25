@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import {
   Heart,
@@ -14,6 +15,17 @@ import {
 import { getAvailableChinchillas, generateSlug } from "@/lib/payload/chinchillas";
 
 export const revalidate = 300;
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Find your perfect chinchilla companion. Canadian Chinchilla Rescue provides loving homes for chinchillas in need across Canada through adoption, fostering, and education.",
+  openGraph: {
+    title: "Canadian Chinchilla Rescue",
+    description: "Every Chinchilla Deserves a Home",
+    type: "website",
+  },
+};
 
 export default async function HomePage() {
   const chinchillas = await getAvailableChinchillas();
