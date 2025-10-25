@@ -51,7 +51,7 @@ export default function Banner() {
               >
                 <circle r={1} cx={1} cy={1} />
               </svg>
-              Join us September 12-14th
+              November 22-23, 2025
             </a>
           </p>
           <button
