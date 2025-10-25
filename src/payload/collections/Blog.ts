@@ -108,6 +108,15 @@ export const Blog: CollectionConfig = {
       type: 'richText',
       required: true,
       label: 'Content',
+      defaultValue: [
+        {
+          children: [
+            {
+              text: 'Start writing your blog post here...',
+            },
+          ],
+        },
+      ],
     },
     {
       name: 'tags',
