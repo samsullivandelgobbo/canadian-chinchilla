@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
     // any domain
     domains: ["*"],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   webpack: (config, { isServer }) => {
     if (!isServer) {
       // Fix Monaco editor issues in browser

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -42,7 +42,10 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { submitApplication } from "./actions";
 
-export default function ApplyPage() {
+export const dynamic = "force-dynamic";
+
+// Component that uses useSearchParams - needs to be wrapped in Suspense
+function ApplicationForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const searchParams = useSearchParams();
@@ -627,5 +630,43 @@ export default function ApplyPage() {
         </Card>
       </div>
     </div>
+  );
+}
+
+// Loading component for Suspense fallback
+function ApplicationFormLoading() {
+  return (
+    <div className="min-h-screen py-20 px-4">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold mb-4">Adoption Application</h1>
+          <p className="text-xl">
+            Help us find the perfect chinchilla match for your family
+          </p>
+        </div>
+        <Card>
+          <CardHeader>
+            <CardTitle>Application Form</CardTitle>
+            <CardDescription>Loading application form...</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
+              <div className="h-4 bg-gray-200 rounded animate-pulse w-3/4"></div>
+              <div className="h-4 bg-gray-200 rounded animate-pulse w-1/2"></div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}
+
+// Main page component that wraps ApplicationForm in Suspense
+export default function ApplyPage() {
+  return (
+    <Suspense fallback={<ApplicationFormLoading />}>
+      <ApplicationForm />
+    </Suspense>
   );
 }
