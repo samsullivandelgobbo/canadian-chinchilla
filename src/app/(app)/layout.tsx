@@ -19,7 +19,7 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://canadianchinchillarescue.ca'),
+  metadataBase: new URL("https://canadianchinchilla.ca"),
   title: {
     default: "Canadian Chinchilla Rescue - Every Chinchilla Deserves a Home",
     template: "%s | Canadian Chinchilla Rescue",
