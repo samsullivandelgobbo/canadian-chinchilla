@@ -2,6 +2,7 @@
 
 import { ApplicationFormData } from '@/lib/schemas';
 import { createApplication } from '@/lib/payload/applications';
+import { sendApplicationConfirmation, sendAdminNotification } from '@/lib/email';
 
 export async function submitApplication(data: ApplicationFormData) {
   try {
@@ -50,6 +51,36 @@ Agreements:
 
     if (!applicationId) {
       throw new Error('Failed to create application');
+    }
+
+    // Send confirmation email to applicant
+    try {
+      await sendApplicationConfirmation({
+        to: data.email,
+        applicantName: `${data.firstName} ${data.lastName}`,
+        interestedChinchilla: data.interestedChinchilla,
+      });
+    } catch (emailError) {
+      console.error('Failed to send confirmation email:', emailError);
+      // Don't fail the whole application if email fails
+    }
+
+    // Send notification to admin
+    try {
+      await sendAdminNotification({
+        applicantName: `${data.firstName} ${data.lastName}`,
+        email: data.email,
+        phone: data.phone,
+        age: data.age,
+        cityProvince: `${data.city}, ${data.province}`,
+        interestedChinchilla: data.interestedChinchilla,
+        hasCage: data.hasCage,
+        hasExperience: data.hasExperience,
+        applicationId,
+      });
+    } catch (emailError) {
+      console.error('Failed to send admin notification:', emailError);
+      // Don't fail the whole application if email fails
     }
 
     return { success: true };

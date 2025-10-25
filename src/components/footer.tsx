@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import { Button } from "./ui/button";
 
 const navigation = {
@@ -68,6 +71,42 @@ const navigation = {
 };
 
 export function Footer() {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [message, setMessage] = useState('');
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      const response = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source: 'footer' }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        setMessage(data.message);
+        setEmail('');
+      } else {
+        setStatus('error');
+        setMessage(data.error || 'Failed to subscribe');
+      }
+    } catch (error) {
+      setStatus('error');
+      setMessage('Network error. Please try again.');
+    }
+
+    setTimeout(() => {
+      setStatus('idle');
+      setMessage('');
+    }, 5000);
+  };
+
   return (
     <footer className="border-t border-border">
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-20 sm:pt-24 lg:px-8 lg:pt-32">
@@ -151,7 +190,7 @@ export function Footer() {
             <p className="text-sm text-muted-foreground mb-4">
               Get notified about new chinchillas and rescue updates.
             </p>
-            <form className="flex gap-2">
+            <form onSubmit={handleSubscribe} className="flex gap-2">
               <label htmlFor="email-address" className="sr-only">
                 Email address
               </label>
@@ -160,14 +199,22 @@ export function Footer() {
                 name="email-address"
                 type="email"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 autoComplete="email"
-                className="flex-1 px-3 py-2 text-sm bg-background border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50"
+                disabled={status === 'loading'}
+                className="flex-1 px-3 py-2 text-sm bg-background border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50"
               />
-              <Button type="submit" size="sm">
-                Subscribe
+              <Button type="submit" size="sm" disabled={status === 'loading'}>
+                {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
               </Button>
             </form>
+            {message && (
+              <p className={`mt-2 text-sm ${status === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+                {message}
+              </p>
+            )}
           </div>
         </div>
         <div className="mt-16 border-t border-gray-900/10 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24 dark:border-white/10">

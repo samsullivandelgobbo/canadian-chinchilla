@@ -12,6 +12,7 @@ import { Media } from './payload/collections/Media'
 import { Chinchillas } from './payload/collections/Chinchillas'
 import { Blog } from './payload/collections/Blog'
 import { Applications } from './payload/collections/Applications'
+import { EmailList } from './payload/collections/EmailList'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -28,7 +29,7 @@ export default buildConfig({
       breakpoints: [],
     },
   },
-  collections: [Users, Media, Chinchillas, Blog, Applications],
+  collections: [Users, Media, Chinchillas, Blog, Applications, EmailList],
   editor: slateEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
