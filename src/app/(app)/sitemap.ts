@@ -3,7 +3,7 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://canadianchinchillarescue.ca";
+  const baseUrl = "https://canadianchinchilla.ca";
 
   // Get all chinchillas for dynamic adopt pages
   const payload = await getPayload({ config });

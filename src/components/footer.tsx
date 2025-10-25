@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 import { Button } from "./ui/button";
 
 const navigation = {
@@ -30,7 +30,7 @@ const navigation = {
   social: [
     {
       name: "Facebook",
-      href: "https://facebook.com/canadianchinchillarescue",
+      href: "https://facebook.com/canchinrescue",
       icon: (props: React.SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -43,7 +43,7 @@ const navigation = {
     },
     {
       name: "Instagram",
-      href: "https://instagram.com/canadianchinchillarescue",
+      href: "https://instagram.com/canchinrescue",
       icon: (props: React.SVGProps<SVGSVGElement>) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -54,56 +54,45 @@ const navigation = {
         </svg>
       ),
     },
-    {
-      name: "YouTube",
-      href: "https://youtube.com/@canadianchinchillarescue",
-      icon: (props: React.SVGProps<SVGSVGElement>) => (
-        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-          <path
-            fillRule="evenodd"
-            d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-    },
   ],
 };
 
 export function Footer() {
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [message, setMessage] = useState('');
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+  const [message, setMessage] = useState("");
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('loading');
+    setStatus("loading");
 
     try {
-      const response = await fetch('/api/newsletter/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source: 'footer' }),
+      const response = await fetch("/api/newsletter/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "footer" }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        setStatus('success');
+        setStatus("success");
         setMessage(data.message);
-        setEmail('');
+        setEmail("");
       } else {
-        setStatus('error');
-        setMessage(data.error || 'Failed to subscribe');
+        setStatus("error");
+        setMessage(data.error || "Failed to subscribe");
       }
     } catch (error) {
-      setStatus('error');
-      setMessage('Network error. Please try again.');
+      setStatus("error");
+      setMessage("Network error. Please try again.");
     }
 
     setTimeout(() => {
-      setStatus('idle');
-      setMessage('');
+      setStatus("idle");
+      setMessage("");
     }, 5000);
   };
 
@@ -129,9 +118,7 @@ export function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold mb-4">
-                  Support & Care
-                </h3>
+                <h3 className="text-sm font-semibold mb-4">Support & Care</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.support.map((item) => (
                     <li key={item.name}>
@@ -148,9 +135,7 @@ export function Footer() {
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold mb-4">
-                  Get Involved
-                </h3>
+                <h3 className="text-sm font-semibold mb-4">Get Involved</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.getInvolved.map((item) => (
                     <li key={item.name}>
@@ -165,9 +150,7 @@ export function Footer() {
                 </ul>
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold mb-4">
-                  Legal & Info
-                </h3>
+                <h3 className="text-sm font-semibold mb-4">Legal & Info</h3>
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.legal.map((item) => (
                     <li key={item.name}>
@@ -184,9 +167,7 @@ export function Footer() {
             </div>
           </div>
           <div className="mt-10 xl:mt-0">
-            <h3 className="text-sm font-semibold mb-4">
-              Stay Updated
-            </h3>
+            <h3 className="text-sm font-semibold mb-4">Stay Updated</h3>
             <p className="text-sm text-muted-foreground mb-4">
               Get notified about new chinchillas and rescue updates.
             </p>
@@ -203,15 +184,17 @@ export function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 autoComplete="email"
-                disabled={status === 'loading'}
+                disabled={status === "loading"}
                 className="flex-1 px-3 py-2 text-sm bg-background border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50"
               />
-              <Button type="submit" size="sm" disabled={status === 'loading'}>
-                {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
+              <Button type="submit" size="sm" disabled={status === "loading"}>
+                {status === "loading" ? "Subscribing..." : "Subscribe"}
               </Button>
             </form>
             {message && (
-              <p className={`mt-2 text-sm ${status === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+              <p
+                className={`mt-2 text-sm ${status === "success" ? "text-green-600" : "text-red-600"}`}
+              >
                 {message}
               </p>
             )}

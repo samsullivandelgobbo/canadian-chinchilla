@@ -7,6 +7,7 @@ We rescue, rehabilitate, and rehome chinchillas across Ontario. Our mission is t
 ## 🐭 About the Rescue
 
 Canadian Chinchilla Rescue is dedicated to:
+
 - **Rescuing** chinchillas from abandonment, surrender, and neglect
 - **Rehabilitating** chinchillas with proper veterinary care and socialization
 - **Rehoming** chinchillas to carefully screened, loving families
@@ -15,6 +16,7 @@ Canadian Chinchilla Rescue is dedicated to:
 ### Our Impact
 
 We work with foster families across the Greater Toronto Area to provide temporary homes for chinchillas in need. Every chinchilla receives:
+
 - Veterinary examination and care
 - Proper nutrition and housing
 - Socialization and enrichment
@@ -24,44 +26,48 @@ We work with foster families across the Greater Toronto Area to provide temporar
 
 ### Adopt a Chinchilla
 
-Visit [canadianchinchillarescue.ca/adopt](https://canadianchinchillarescue.ca/adopt) to see our available chinchillas. Each one has a unique personality and is waiting for their forever home.
+Visit [canadianchinchilla.ca/adopt](https://canadianchinchilla.ca/adopt) to see our available chinchillas. Each one has a unique personality and is waiting for their forever home.
 
 ### Donate
 
 Your donation helps us:
+
 - Provide emergency veterinary care
 - Supply food, bedding, and enrichment toys
 - Support our foster network
 - Rescue more chinchillas in need
 
-**[Donate Now](https://canadianchinchillarescue.ca/donate)** - Every dollar goes directly to chinchilla care
+**[Donate Now](https://canadianchinchilla.ca/donate)** - Every dollar goes directly to chinchilla care
 
 ### Volunteer
 
 We're always looking for:
+
 - **Foster homes** - Provide temporary care for chinchillas
 - **Adoption coordinators** - Help screen applications
 - **Transport volunteers** - Help chinchillas get to vet appointments and new homes
 - **Social media support** - Share our mission
 
-Contact us at [info@canadianchinchillarescue.ca](mailto:info@canadianchinchillarescue.ca) to get involved.
+Contact us at [info@canadianchinchilla.ca](mailto:info@canadianchinchilla.ca) to get involved.
 
 ## 🌐 Website
 
 This repository contains the code for our rescue website, built with modern web technologies to:
+
 - Showcase adoptable chinchillas with photos and profiles
 - Process adoption applications
 - Share educational resources about chinchilla care
 - Manage our volunteer network
 - Accept donations
 
-**Live Site**: [canadianchinchillarescue.ca](https://canadianchinchillarescue.ca)
+**Live Site**: [canadianchinchilla.ca](https://canadianchinchilla.ca)
 
 ## 🛠 For Developers
 
 This is a Next.js application with Payload CMS for content management.
 
 ### Tech Stack
+
 - Next.js 15 (App Router)
 - Payload CMS v3
 - PostgreSQL (Neon)
@@ -103,9 +109,9 @@ For major changes, please open an issue first to discuss what you'd like to chan
 
 ## 📧 Contact
 
-- **Website**: [canadianchinchillarescue.ca](https://canadianchinchillarescue.ca)
-- **Email**: [info@canadianchinchillarescue.ca](mailto:info@canadianchinchillarescue.ca)
-- **Adoption Inquiries**: [Apply online](https://canadianchinchillarescue.ca/apply)
+- **Website**: [canadianchinchilla.ca](https://canadianchinchilla.ca)
+- **Email**: [info@canadianchinchilla.ca](mailto:info@canadianchinchilla.ca)
+- **Adoption Inquiries**: [Apply online](https://canadianchinchilla.ca/apply)
 
 ## 📄 License
 
@@ -115,4 +121,4 @@ This project is built for Canadian Chinchilla Rescue. If you're building a simil
 
 **Built with ❤️ for chinchillas across Canada**
 
-*Registered Canadian nonprofit organization* 🇨🇦
+_Registered Canadian nonprofit organization_ 🇨🇦

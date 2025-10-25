@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_CA",
-    url: "https://canadianchinchillarescue.ca",
+    url: "https://canadianchinchilla.ca",
     title: "Canadian Chinchilla Rescue",
     description: "Every Chinchilla Deserves a Home",
     siteName: "Canadian Chinchilla Rescue",
