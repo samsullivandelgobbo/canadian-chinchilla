@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import Banner from "@/components/banner";
@@ -99,6 +101,8 @@ export default function MainLayout({
         <Banner />
         <main className="min-h-screen texture-overlay">{children}</main>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
