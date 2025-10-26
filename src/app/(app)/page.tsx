@@ -2,17 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
-import {
-  Heart,
-  Home,
-  Users,
-  ArrowRight,
-} from "lucide-react";
+import { Heart, Home, Users, ArrowRight } from "lucide-react";
 import {
   GenderMaleIcon,
   GenderFemaleIcon,
 } from "@phosphor-icons/react/dist/ssr";
-import { getAvailableChinchillas, generateSlug } from "@/lib/payload/chinchillas";
+import {
+  getAvailableChinchillas,
+  generateSlug,
+} from "@/lib/payload/chinchillas";
 
 export const revalidate = 300;
 
@@ -34,12 +32,15 @@ export default async function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Clean and Modern */}
-      <section className="relative px-4 py-28 md:py-36 lg:py-48">
+      <section className="relative px-4 py-16 lg:py-20">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <div className="space-y-10">
               <div className="space-y-7">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.08] tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
+                <h1
+                  className="text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.08] tracking-tight"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
                   Every Chinchilla
                   <br />
                   <span className="text-primary">Deserves a Home</span>
@@ -58,7 +59,12 @@ export default async function HomePage() {
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="text-base">
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="text-base"
+                >
                   <Link href="/about">Our Story</Link>
                 </Button>
               </div>
@@ -68,7 +74,8 @@ export default async function HomePage() {
                   <span className="font-semibold text-primary text-base">
                     {chinchillas.length}
                   </span>{" "}
-                  chinchilla{chinchillas.length !== 1 ? "s" : ""} waiting for homes
+                  chinchilla{chinchillas.length !== 1 ? "s" : ""} waiting for
+                  homes
                 </p>
               )}
             </div>
@@ -122,7 +129,10 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
             <div className="text-center space-y-3">
-              <div className="text-5xl md:text-6xl font-semibold text-primary" style={{ fontFamily: "var(--font-display)" }}>
+              <div
+                className="text-5xl md:text-6xl font-semibold text-primary"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
                 500+
               </div>
               <div className="text-sm text-muted-foreground">
@@ -130,23 +140,28 @@ export default async function HomePage() {
               </div>
             </div>
             <div className="text-center space-y-3">
-              <div className="text-5xl md:text-6xl font-semibold text-primary" style={{ fontFamily: "var(--font-display)" }}>
+              <div
+                className="text-5xl md:text-6xl font-semibold text-primary"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
                 450+
               </div>
-              <div className="text-sm text-muted-foreground">
-                Forever Homes
-              </div>
+              <div className="text-sm text-muted-foreground">Forever Homes</div>
             </div>
             <div className="text-center space-y-3">
-              <div className="text-5xl md:text-6xl font-semibold text-primary" style={{ fontFamily: "var(--font-display)" }}>
+              <div
+                className="text-5xl md:text-6xl font-semibold text-primary"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
                 15+
               </div>
-              <div className="text-sm text-muted-foreground">
-                Years
-              </div>
+              <div className="text-sm text-muted-foreground">Years</div>
             </div>
             <div className="text-center space-y-3">
-              <div className="text-5xl md:text-6xl font-semibold text-primary" style={{ fontFamily: "var(--font-display)" }}>
+              <div
+                className="text-5xl md:text-6xl font-semibold text-primary"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
                 100%
               </div>
               <div className="text-sm text-muted-foreground">
@@ -162,7 +177,10 @@ export default async function HomePage() {
         <section className="px-4 py-28 md:py-36">
           <div className="max-w-7xl mx-auto">
             <div className="mb-20 max-w-2xl">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-5 tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
+              <h2
+                className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-5 tracking-tight"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
                 Meet Some of <span className="text-primary">Our Friends</span>
               </h2>
               <p className="text-lg text-muted-foreground">
@@ -195,7 +213,9 @@ export default async function HomePage() {
 
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-xl font-medium">{chinchilla.name}</h3>
+                        <h3 className="text-xl font-medium">
+                          {chinchilla.name}
+                        </h3>
                         {chinchilla.gender === "Male" ? (
                           <GenderMaleIcon className="w-5 h-5 text-blue-500" />
                         ) : (
@@ -203,10 +223,13 @@ export default async function HomePage() {
                         )}
                       </div>
                       <p className="text-sm text-muted-foreground line-clamp-2">
-                        {chinchilla.description || "A wonderful chinchilla looking for love."}
+                        {chinchilla.description ||
+                          "A wonderful chinchilla looking for love."}
                       </p>
                       <div className="text-sm text-muted-foreground">
-                        {chinchilla.age} {chinchilla.age === 1 ? "year" : "years"} • {chinchilla.color}
+                        {chinchilla.age}{" "}
+                        {chinchilla.age === 1 ? "year" : "years"} •{" "}
+                        {chinchilla.color}
                       </div>
                     </div>
                   </div>
@@ -231,12 +254,15 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-20 lg:gap-28">
             <div className="space-y-6">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
+              <h2
+                className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
                 Why Adopt from <span className="text-primary">a Rescue?</span>
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                When you adopt, you're not just getting a pet—you're saving a life
-                and gaining a loving companion.
+                When you adopt, you're not just getting a pet—you're saving a
+                life and gaining a loving companion.
               </p>
             </div>
 
@@ -248,10 +274,12 @@ export default async function HomePage() {
                   </div>
                 </div>
                 <div className="space-y-3">
-                  <h3 className="text-xl font-semibold">Give a Second Chance</h3>
+                  <h3 className="text-xl font-semibold">
+                    Give a Second Chance
+                  </h3>
                   <p className="text-muted-foreground">
-                    Many chinchillas come to us through no fault of their own. Your
-                    adoption gives them the loving home they deserve.
+                    Many chinchillas come to us through no fault of their own.
+                    Your adoption gives them the loving home they deserve.
                   </p>
                 </div>
               </div>
@@ -265,8 +293,9 @@ export default async function HomePage() {
                 <div className="space-y-3">
                   <h3 className="text-xl font-semibold">Expert Guidance</h3>
                   <p className="text-muted-foreground">
-                    We've been caring for chinchillas for over 15 years. We'll help
-                    you find the perfect match and provide lifetime support.
+                    We've been caring for chinchillas for over 15 years. We'll
+                    help you find the perfect match and provide lifetime
+                    support.
                   </p>
                 </div>
               </div>
@@ -280,8 +309,8 @@ export default async function HomePage() {
                 <div className="space-y-3">
                   <h3 className="text-xl font-semibold">Health & Care</h3>
                   <p className="text-muted-foreground">
-                    All our chinchillas are vet-checked, assessed for temperament,
-                    and socialized before adoption.
+                    All our chinchillas are vet-checked, assessed for
+                    temperament, and socialized before adoption.
                   </p>
                 </div>
               </div>
@@ -293,8 +322,12 @@ export default async function HomePage() {
       {/* CTA */}
       <section className="px-4 py-28 md:py-36">
         <div className="max-w-4xl mx-auto text-center space-y-10">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
-            Ready to <span className="text-primary">Welcome a Chinchilla Home?</span>
+          <h2
+            className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Ready to{" "}
+            <span className="text-primary">Welcome a Chinchilla Home?</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Start your adoption journey today. Our team is here to help you find

@@ -1,1 +1,536 @@
-/* Add any custom admin styles here */
+/* ========================================
+   Canadian Chinchilla Rescue - Admin Theme
+   Professional yet friendly design with vibrant red branding
+   ======================================== */
+
+:root {
+  /* Brand Colors - Vibrant Red Primary (matching frontend) */
+  --theme-primary: #C1272D;        /* Main red */
+  --theme-primary-dark: #991B1B;
+  --theme-primary-light: #DC2626;
+  --theme-accent: #EF4444;         /* Bright red accent */
+
+  /* Clean Background Colors - Proper light to dark progression */
+  --theme-elevation-0: #FFFFFF;
+  --theme-elevation-50: #FAFAFA;
+  --theme-elevation-100: #F5F5F5;
+  --theme-elevation-150: #F0F0F0;
+  --theme-elevation-200: #E5E5E5;
+  --theme-elevation-250: #D4D4D4;
+  --theme-elevation-300: #C0C0C0;
+  --theme-elevation-400: #A0A0A0;
+  --theme-elevation-500: #808080;
+  --theme-elevation-600: #606060;
+  --theme-elevation-700: #404040;
+  --theme-elevation-800: #202020;
+  --theme-elevation-900: #000000;
+
+  /* Success States */
+  --theme-success-50: #F0FDF4;
+  --theme-success-100: #DCFCE7;
+  --theme-success-500: #22C55E;
+  --theme-success-600: #16A34A;
+  --theme-success-700: #15803D;
+
+  /* Warning States */
+  --theme-warning-50: #FFF7ED;
+  --theme-warning-100: #FFEDD5;
+  --theme-warning-500: #F97316;
+  --theme-warning-600: #EA580C;
+  --theme-warning-700: #C2410C;
+
+  /* Error States */
+  --theme-error-50: #FEF2F2;
+  --theme-error-100: #FEE2E2;
+  --theme-error-500: #EF4444;
+  --theme-error-600: #DC2626;
+  --theme-error-700: #B91C1C;
+
+  /* Typography */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Border Radius - Friendly rounded corners */
+  --radius-sm: 0.375rem;
+  --radius: 0.5rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+/* ========================================
+   Navigation Sidebar
+   ======================================== */
+
+/* Sidebar background - Clean white with black text */
+.template-default .nav,
+.template-default .nav-wrapper {
+  background: #FFFFFF;
+  border-right: 1px solid var(--theme-elevation-300);
+  font-family: var(--font-body);
+}
+
+/* Nav items - Strong contrast */
+.nav__list .nav__link {
+  color: var(--theme-elevation-800);
+  transition: all 0.15s ease;
+  border-radius: var(--radius);
+  margin: 0.25rem 0.75rem;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.nav__list .nav__link:hover,
+.nav__list .nav__link:focus {
+  color: var(--theme-primary);
+  background: var(--theme-elevation-100);
+}
+
+/* Active nav item - Subtle red accent */
+.nav__list .nav__link.active {
+  color: var(--theme-primary);
+  background: var(--theme-elevation-150);
+  font-weight: 600;
+  border-left: 3px solid var(--theme-primary);
+  padding-left: calc(0.875rem - 3px);
+}
+
+/* Nav icons */
+.nav__list .nav__link svg {
+  color: var(--theme-elevation-700);
+  transition: color 0.15s ease;
+}
+
+.nav__list .nav__link:hover svg,
+.nav__list .nav__link.active svg {
+  color: var(--theme-primary);
+}
+
+/* Nav group headers */
+.nav__label {
+  color: var(--theme-elevation-600);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem 1.5rem 0.5rem;
+  margin-top: 1rem;
+}
+
+/* ========================================
+   Top Header Bar
+   ======================================== */
+
+.template-default .app-header {
+  border-bottom: 1px solid var(--theme-elevation-400);
+  background: var(--theme-elevation-0);
+}
+
+/* Breadcrumbs styling - Strong contrast */
+.breadcrumbs__label {
+  color: var(--theme-elevation-800);
+  font-weight: 600;
+}
+
+.breadcrumbs__label:hover {
+  color: var(--theme-elevation-900);
+  text-decoration: underline;
+}
+
+/* ========================================
+   Dashboard Welcome
+   ======================================== */
+
+.dashboard__greeting {
+  background: var(--theme-elevation-0);
+  color: var(--theme-elevation-900);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  margin-bottom: 2rem;
+  border: 1px solid var(--theme-elevation-300);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard__greeting::before {
+  content: "🐭";
+  font-size: 3rem;
+  margin-right: 1rem;
+}
+
+/* ========================================
+   Buttons & Actions
+   ======================================== */
+
+/* Primary buttons - Neutral with red for critical actions only */
+.btn--style-primary,
+.form-submit button[type="submit"] {
+  background: var(--theme-elevation-900) !important;
+  border-color: var(--theme-elevation-900) !important;
+  color: white !important;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.btn--style-primary:hover,
+.form-submit button[type="submit"]:hover {
+  background: var(--theme-elevation-800) !important;
+  border-color: var(--theme-elevation-800) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Publish button - Red for important publish action */
+.publish-button {
+  background: var(--theme-primary) !important;
+  border-color: var(--theme-primary) !important;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+
+.publish-button:hover {
+  background: var(--theme-primary-dark) !important;
+  border-color: var(--theme-primary-dark) !important;
+}
+
+/* Create new button - Red accent */
+.collection-list__header .button,
+.create-first-button {
+  background: var(--theme-primary);
+  border-color: var(--theme-primary);
+  color: white;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+
+.collection-list__header .button:hover,
+.create-first-button:hover {
+  background: var(--theme-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(193, 39, 45, 0.3);
+}
+
+/* Secondary buttons - Subtle red accent */
+.btn--style-secondary {
+  background: var(--theme-elevation-0);
+  border-color: var(--theme-primary);
+  color: var(--theme-primary);
+  border-radius: var(--radius);
+  font-weight: 500;
+}
+
+.btn--style-secondary:hover {
+  background: rgba(193, 39, 45, 0.05);
+  border-color: var(--theme-primary-dark);
+  color: var(--theme-primary-dark);
+}
+
+/* Links - Proper contrast */
+a {
+  color: var(--theme-elevation-900);
+  text-decoration: underline;
+}
+
+a:hover {
+  color: var(--theme-primary);
+}
+
+.nav a,
+.nav__link,
+.btn a,
+button a {
+  text-decoration: none;
+}
+
+/* ========================================
+   Tables & Lists
+   ======================================== */
+
+/* Table row hover - Subtle red accent */
+.table tr:hover {
+  background: rgba(193, 39, 45, 0.03);
+}
+
+/* Selected rows - Red accent */
+.table tr.selected,
+.table tr.selected:hover {
+  background: rgba(193, 39, 45, 0.05);
+  border-left: 3px solid var(--theme-primary);
+}
+
+/* Clickable rows */
+.row-link:hover {
+  background: rgba(193, 39, 45, 0.03);
+  cursor: pointer;
+  border-left: 2px solid var(--theme-primary);
+}
+
+/* ========================================
+   Form Fields
+   ======================================== */
+
+/* Input focus - Red accent */
+input:focus,
+textarea:focus,
+.react-select__control--is-focused {
+  border-color: var(--theme-primary) !important;
+  box-shadow: 0 0 0 1px var(--theme-primary) !important;
+  outline: none;
+}
+
+/* Rich text editor */
+.rich-text-slate {
+  border: 1px solid var(--theme-elevation-400);
+  border-radius: var(--radius-md);
+  transition: border-color 0.15s ease;
+}
+
+.rich-text-slate:focus-within {
+  border-color: var(--theme-primary);
+  box-shadow: 0 0 0 1px var(--theme-primary);
+}
+
+/* ========================================
+   Badges & Status Indicators
+   ======================================== */
+
+/* Status badges */
+.pill {
+  border-radius: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+/* Custom status colors for Applications */
+.pill--status-new,
+.pill[data-status="new"] {
+  background: var(--theme-warning-50);
+  color: var(--theme-warning-600);
+  border: 1px solid var(--theme-warning-500);
+}
+
+.pill--status-approved,
+.pill[data-status="approved"] {
+  background: var(--theme-success-50);
+  color: var(--theme-success-600);
+  border: 1px solid var(--theme-success-500);
+}
+
+/* ========================================
+   Cards & Containers
+   ======================================== */
+
+.card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--theme-elevation-300);
+  transition: all 0.2s ease;
+  background: var(--theme-elevation-0);
+}
+
+.card:hover {
+  border-color: var(--theme-primary);
+  box-shadow: 0 4px 12px rgba(193, 39, 45, 0.15);
+}
+
+/* ========================================
+   Collection Icons (Custom Emoji)
+   ======================================== */
+
+/* Add emoji to collection nav items */
+.nav__list a[href*="/chinchillas"]::before {
+  content: "🐭 ";
+  margin-right: 0.5rem;
+}
+
+.nav__list a[href*="/applications"]::before {
+  content: "📋 ";
+  margin-right: 0.5rem;
+}
+
+.nav__list a[href*="/blog"]::before {
+  content: "📝 ";
+  margin-right: 0.5rem;
+}
+
+.nav__list a[href*="/email-list"]::before {
+  content: "📧 ";
+  margin-right: 0.5rem;
+}
+
+.nav__list a[href*="/media"]::before {
+  content: "🖼️ ";
+  margin-right: 0.5rem;
+}
+
+.nav__list a[href*="/users"]::before {
+  content: "👥 ";
+  margin-right: 0.5rem;
+}
+
+/* ========================================
+   Dashboard Stats
+   ======================================== */
+
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--theme-elevation-300);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(193, 39, 45, 0.15);
+  border-color: var(--theme-primary);
+}
+
+.stat-card__number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--theme-elevation-900);
+  margin: 0;
+}
+
+.stat-card__label {
+  font-size: 0.875rem;
+  color: var(--theme-elevation-600);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+/* ========================================
+   Loading States
+   ======================================== */
+
+.spinner {
+  border-color: rgba(193, 39, 45, 0.2);
+  border-top-color: var(--theme-primary);
+  border-left-color: var(--theme-primary);
+}
+
+/* ========================================
+   Modals & Overlays
+   ======================================== */
+
+.modal__header {
+  border-bottom: 1px solid var(--theme-elevation-300);
+  background: var(--theme-elevation-0);
+}
+
+.modal__header h2,
+.modal__header h3 {
+  color: var(--theme-elevation-900);
+}
+
+.drawer {
+  background: var(--theme-elevation-0);
+  border-left: 1px solid var(--theme-elevation-300);
+}
+
+/* ========================================
+   Notifications/Toasts
+   ======================================== */
+
+.toast--success {
+  border-left: 4px solid var(--theme-success-500);
+}
+
+.toast--error {
+  border-left: 4px solid var(--theme-error-500);
+}
+
+.toast--warning {
+  border-left: 4px solid var(--theme-warning-500);
+}
+
+/* ========================================
+   Login Page
+   ======================================== */
+
+.template-minimal {
+  background: linear-gradient(135deg, #F5F5F5 0%, #E5E5E5 100%);
+}
+
+.template-minimal .login-form {
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  padding: 2rem;
+  border: 1px solid var(--theme-elevation-300);
+}
+
+/* ========================================
+   Responsive Adjustments
+   ======================================== */
+
+@media (max-width: 768px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .nav__list a[href*="/"]::before {
+    font-size: 1.2rem;
+  }
+}
+
+/* ========================================
+   Custom Animations
+   ======================================== */
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.drawer {
+  animation: slideInFromRight 0.3s ease-out;
+}
+
+/* ========================================
+   Dark Mode Support (Optional)
+   ======================================== */
+
+[data-theme="dark"] {
+  --theme-primary: #DC2626;
+  --theme-primary-dark: #B91C1C;
+  --theme-primary-light: #EF4444;
+}
+
+[data-theme="dark"] .nav,
+[data-theme="dark"] .nav-wrapper {
+  background: #1A1A1A;
+  border-right: 1px solid #2A2A2A;
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+  .nav,
+  .app-header,
+  .form-submit {
+    display: none !important;
+  }
+}

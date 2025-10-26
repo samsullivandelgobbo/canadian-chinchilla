@@ -28,6 +28,20 @@ export default buildConfig({
     livePreview: {
       breakpoints: [],
     },
+    meta: {
+      titleSuffix: '- Canadian Chinchilla Rescue',
+      favicon: '/favicon.ico',
+      ogImage: '/opengraph.png',
+    },
+    components: {
+      // Custom logo in the nav
+      graphics: {
+        Icon: './payload/components/Icon.tsx',
+        Logo: './payload/components/Logo.tsx',
+      },
+      // Custom login page branding
+      beforeLogin: ['./payload/components/BeforeLogin.tsx'],
+    },
   },
   collections: [Users, Media, Chinchillas, Blog, Applications, EmailList],
   editor: slateEditor({}),

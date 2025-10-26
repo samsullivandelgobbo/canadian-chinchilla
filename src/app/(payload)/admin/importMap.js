@@ -41,6 +41,9 @@ import { UnorderedListElement as UnorderedListElement_0b388c087d9de8c4f011dd323a
 import { UploadElementButton as UploadElementButton_0b388c087d9de8c4f011dd323a130cfb } from '@payloadcms/richtext-slate/client'
 import { UploadElement as UploadElement_0b388c087d9de8c4f011dd323a130cfb } from '@payloadcms/richtext-slate/client'
 import { WithUpload as WithUpload_0b388c087d9de8c4f011dd323a130cfb } from '@payloadcms/richtext-slate/client'
+import { default as default_f419045c99fd6e834c4f9a2c4ee2f01c } from '../../../payload/components/Icon.tsx'
+import { default as default_df65b5bcbb8853b32de6bd326627b03a } from '../../../payload/components/Logo.tsx'
+import { default as default_cacd9b2c1afa03ba9c7d1d30d96ede4c } from '../../../payload/components/BeforeLogin.tsx'
 import { VercelBlobClientUploadHandler as VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e } from '@payloadcms/storage-vercel-blob/client'
 
 export const importMap = {
@@ -87,5 +90,8 @@ export const importMap = {
   "@payloadcms/richtext-slate/client#UploadElementButton": UploadElementButton_0b388c087d9de8c4f011dd323a130cfb,
   "@payloadcms/richtext-slate/client#UploadElement": UploadElement_0b388c087d9de8c4f011dd323a130cfb,
   "@payloadcms/richtext-slate/client#WithUpload": WithUpload_0b388c087d9de8c4f011dd323a130cfb,
+  "./payload/components/Icon.tsx#default": default_f419045c99fd6e834c4f9a2c4ee2f01c,
+  "./payload/components/Logo.tsx#default": default_df65b5bcbb8853b32de6bd326627b03a,
+  "./payload/components/BeforeLogin.tsx#default": default_cacd9b2c1afa03ba9c7d1d30d96ede4c,
   "@payloadcms/storage-vercel-blob/client#VercelBlobClientUploadHandler": VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e
 }
