@@ -14,7 +14,7 @@ const navigation = {
     { name: "Emergency Resources", href: "/emergency" },
     { name: "Contact Us", href: "/contact" },
     { name: "Blog & Updates", href: "/blog" },
-    { name: "About Us", href: "/about" },
+    { name: "Partners", href: "/partners" },
   ],
   getInvolved: [
     { name: "Volunteer", href: "/volunteer" },

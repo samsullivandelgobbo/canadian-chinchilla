@@ -1,6 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Heart, DollarSign, Package, Home, Users, ArrowRight } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Heart, DollarSign, Package, Home, Users, ArrowRight, ExternalLink } from "lucide-react";
+import { ETransferDonation } from "@/components/etransfer-donation";
 
 export const metadata = {
   title: "Donate",
@@ -12,19 +15,34 @@ export default function DonatePage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="px-4 py-28 md:py-36 lg:py-48">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold mb-8 tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
-            Support Our <span className="text-primary">Mission</span>
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto mb-10">
-            Your generous donations help us provide medical care, food, housing, and love to chinchillas in need. Every contribution makes a difference.
-          </p>
-          <Button asChild size="lg">
-            <Link href="mailto:donate@chinchillarescue.ca" className="flex items-center gap-2">
-              Donate Today
-              <Heart className="w-4 h-4" />
-            </Link>
-          </Button>
+        <div className="max-w-4xl mx-auto text-center space-y-10">
+          <div className="space-y-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
+              Support Our <span className="text-primary">Mission</span>
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              Your generous donations help us provide medical care, food, housing, and love to chinchillas in need. Every contribution makes a difference.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button asChild size="lg" className="group min-w-[200px]">
+              <a
+                href="https://www.canadahelps.org/gp/18298"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                Donate Now
+                <ExternalLink className="w-4 h-4 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="min-w-[200px]">
+              <a href="#etransfer">
+                e-Transfer Info
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -105,51 +123,90 @@ export default function DonatePage() {
       </section>
 
       {/* Ways to Give */}
-      <section className="px-4 py-28 md:py-36">
+      <section id="etransfer" className="px-4 py-28 md:py-36 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-semibold mb-6 tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
               Ways to <span className="text-primary">Give</span>
             </h2>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-            <div className="space-y-8">
-              <h3 className="text-2xl md:text-3xl font-semibold">Monetary Donations</h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Financial contributions help us provide immediate care and support for chinchillas in need. All donations are tax-deductible.
+          {/* Featured: Canada Helps */}
+          <Card className="p-8 md:p-12 mb-16 bg-accent/50">
+            <div className="max-w-3xl mx-auto text-center space-y-6">
+              <div className="flex justify-center">
+                <Image
+                  src="/canadahelps-logo.png"
+                  alt="CanadaHelps"
+                  width={200}
+                  height={60}
+                  className="h-12 w-auto"
+                />
+              </div>
+              <div className="space-y-4">
+                <h3
+                  className="text-2xl md:text-3xl font-semibold"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  Donate via CanadaHelps
+                </h3>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Make a secure, tax-deductible donation through CanadaHelps. Your contribution goes directly to supporting chinchillas in need.
+                </p>
+              </div>
+              <Button asChild size="lg" className="group">
+                <a
+                  href="https://www.canadahelps.org/gp/18298"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  Donate Now
+                  <ExternalLink className="w-4 h-4 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+              </Button>
+            </div>
+          </Card>
+
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+            <div>
+              <ETransferDonation />
+            </div>
+
+            <div className="space-y-6">
+              <h3
+                className="text-2xl md:text-3xl font-semibold"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                Supply Donations
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                We always need supplies for daily chinchilla care. Contact us to arrange drop-off or shipping:
               </p>
-              <Button asChild size="lg">
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
+                  <span className="leading-relaxed">Timothy hay and quality pellets</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
+                  <span className="leading-relaxed">Chinchilla dust (Blue Cloud or Blue Sparkle)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
+                  <span className="leading-relaxed">Cages and accessories</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
+                  <span className="leading-relaxed">Fleece liners and bedding</span>
+                </li>
+              </ul>
+              <Button asChild variant="outline" className="mt-4">
                 <Link href="mailto:donate@chinchillarescue.ca" className="flex items-center gap-2">
-                  Make a Donation
+                  Contact About Supplies
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
-            </div>
-
-            <div className="space-y-8">
-              <h3 className="text-2xl md:text-3xl font-semibold">Supply Donations</h3>
-              <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                We always need supplies for daily chinchilla care. Contact us to arrange drop-off or shipping:
-              </p>
-              <ul className="space-y-4 text-muted-foreground">
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Timothy hay and quality pellets</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Chinchilla dust (Blue Cloud or Blue Sparkle)</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Cages and accessories</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Fleece liners and bedding</span>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
