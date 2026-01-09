@@ -83,37 +83,37 @@ export default async function HomePage() {
             {/* Hero Image Grid */}
             <div className="grid grid-cols-2 gap-4 lg:gap-6">
               <div className="space-y-4 lg:space-y-6">
-                <div className="aspect-[3/4] relative rounded-2xl overflow-hidden bg-muted">
+                <div className="aspect-[9/10] relative rounded-2xl overflow-hidden bg-muted">
                   <Image
-                    src="/flower.avif"
-                    alt="Chinchilla"
+                    src="/images/winter-chin-1.webp"
+                    alt="Chinchilla in winter scene"
                     fill
                     className="object-cover"
                     priority
                   />
                 </div>
-                <div className="aspect-square relative rounded-2xl overflow-hidden bg-muted">
+                <div className="aspect-[9/10] relative rounded-2xl overflow-hidden bg-muted">
                   <Image
-                    src="/summer.png"
-                    alt="Chinchilla"
+                    src="/images/winter-chin-2.webp"
+                    alt="Chinchilla in winter scene"
                     fill
                     className="object-cover"
                   />
                 </div>
               </div>
               <div className="space-y-4 lg:space-y-6 pt-8 lg:pt-12">
-                <div className="aspect-square relative rounded-2xl overflow-hidden bg-muted">
+                <div className="aspect-[9/10] relative rounded-2xl overflow-hidden bg-muted">
                   <Image
-                    src="/autumn.png"
-                    alt="Chinchilla"
+                    src="/images/winter-chin-3.webp"
+                    alt="Chinchilla in winter scene"
                     fill
                     className="object-cover"
                   />
                 </div>
-                <div className="aspect-[3/4] relative rounded-2xl overflow-hidden bg-muted">
+                <div className="aspect-[9/10] relative rounded-2xl overflow-hidden bg-muted">
                   <Image
-                    src="/halloween.png"
-                    alt="Chinchilla"
+                    src="/images/winter-chin-4.webp"
+                    alt="Chinchilla in winter scene"
                     fill
                     className="object-cover"
                   />

@@ -1,519 +1,915 @@
+import Link from "next/link";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import {
-  Thermometer,
-  Droplets,
-  Home,
-  Utensils,
-  Heart,
-  AlertTriangle,
-  Clock,
-  Shield,
-  BookOpen,
-  MapPin,
-} from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 
 export const metadata = {
   title: "Chinchilla Care Guide",
   description:
-    "Complete guide to caring for your chinchilla including housing, diet, temperature, and health care.",
+    "Complete guide to caring for your chinchilla including housing, diet, temperature, health, behavior, and everything you need to know.",
 };
 
 export default function CarePage() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="px-4 py-28 md:py-36 lg:py-48">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold mb-8 tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
+      {/* Hero */}
+      <section className="px-4 py-20 md:py-28">
+        <div className="max-w-3xl mx-auto">
+          <h1
+            className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-8 tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
             Chinchilla <span className="text-primary">Care Guide</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            Everything you need to know to provide excellent care for your
-            chinchilla. These guidelines will help ensure your furry friend
-            lives a long, healthy, and happy life.
+          <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+            Chinchillas are wonderful, unique companions that can live 15-20
+            years with proper care. They&apos;re playful, curious, and form strong
+            bonds with their owners. But they also have very specific needs that
+            differ significantly from other small pets.
+          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            This guide covers everything you need to know to give your
+            chinchilla a happy, healthy life. Whether you&apos;re considering
+            adoption or already have a chinchilla at home, understanding their
+            needs is the foundation of good care.
           </p>
         </div>
       </section>
 
-      {/* Quick Facts */}
-      <section className="px-4 py-28 md:py-36 bg-secondary/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-semibold mb-5 tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
-              Quick <span className="text-primary">Facts</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-            <div className="text-center space-y-4">
-              <div className="mx-auto w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
-                <Thermometer className="w-10 h-10 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold">Temperature</h3>
-              <p className="text-muted-foreground">60–70°F ideal<br/>Never above 75°F</p>
+      {/* Quick Reference */}
+      <section className="px-4 py-16 bg-secondary/30">
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-2xl md:text-3xl font-semibold mb-8 tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Quick Reference
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-6 text-sm">
+            <div className="space-y-3">
+              <p><strong>Lifespan:</strong> 15-20 years</p>
+              <p><strong>Temperature:</strong> 60-70°F (never above 75°F)</p>
+              <p><strong>Humidity:</strong> Below 50%</p>
+              <p><strong>Diet:</strong> Unlimited hay + 1-2 tbsp pellets daily</p>
             </div>
-
-            <div className="text-center space-y-4">
-              <div className="mx-auto w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
-                <Utensils className="w-10 h-10 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold">Diet</h3>
-              <p className="text-muted-foreground">Unlimited timothy hay<br/>+ 1–2 tbsp pellets daily</p>
-            </div>
-
-            <div className="text-center space-y-4">
-              <div className="mx-auto w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
-                <Clock className="w-10 h-10 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold">Lifespan</h3>
-              <p className="text-muted-foreground">15–20 years<br/>with proper care</p>
-            </div>
-
-            <div className="text-center space-y-4">
-              <div className="mx-auto w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
-                <Heart className="w-10 h-10 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold">Exercise</h3>
-              <p className="text-muted-foreground">1–2 hours supervised daily<br/>+ 15" wheel minimum</p>
-            </div>
-
-            <div className="text-center space-y-4">
-              <div className="mx-auto w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
-                <Droplets className="w-10 h-10 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold">Dust Baths</h3>
-              <p className="text-muted-foreground">2–3 times per week<br/>10–15 minutes each</p>
-            </div>
-
-            <div className="text-center space-y-4">
-              <div className="mx-auto w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
-                <AlertTriangle className="w-10 h-10 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold">Climate Rule</h3>
-              <p className="text-muted-foreground">Temp (°F) + Humidity (%)<br/>Must be ≤ 150</p>
+            <div className="space-y-3">
+              <p><strong>Dust baths:</strong> 2-3 times per week</p>
+              <p><strong>Exercise:</strong> 1-2 hours supervised playtime daily</p>
+              <p><strong>Cage minimum:</strong> 30&quot; x 18&quot; x 30&quot; (bigger is better)</p>
+              <p><strong>Social needs:</strong> Thrive with companionship</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Temperature Control */}
-      <section className="px-4 py-28 md:py-36">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-20 lg:gap-28 items-center">
-            <div className="space-y-8">
-              <div className="inline-flex items-center gap-3 px-4 py-2 bg-primary/10 rounded-full">
-                <Thermometer className="w-5 h-5 text-primary" />
-                <span className="text-sm font-semibold text-primary">CRITICAL</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
-                Temperature <span className="text-primary">Control</span>
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Chinchillas originate from the cool Andes mountains and have the densest fur of any land animal. They cannot tolerate heat and humidity.
-              </p>
+      {/* Understanding Chinchillas */}
+      <section className="px-4 py-16 md:py-20">
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-3xl md:text-4xl font-semibold mb-8 tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Understanding Chinchillas
+          </h2>
 
-              <div className="space-y-5">
-                <div className="p-6 bg-primary/5 rounded-2xl border border-primary/20">
-                  <h3 className="text-xl font-semibold mb-3">Ideal Range</h3>
-                  <p className="text-3xl font-semibold text-primary mb-2" style={{ fontFamily: "var(--font-display)" }}>60–70°F</p>
-                  <p className="text-muted-foreground">(15.5–21°C)</p>
-                </div>
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Chinchillas are crepuscular rodents native to the Andes Mountains of
+            South America, where they live at elevations of 10,000-16,000 feet.
+            This high-altitude origin shapes nearly every aspect of their care
+            requirements. The cool, dry mountain air they evolved in means they
+            cannot tolerate heat or humidity—conditions that would never occur
+            in their natural habitat.
+          </p>
 
-                <Alert className="border-destructive/50 bg-destructive/5">
-                  <AlertTriangle className="h-5 w-5 text-destructive" />
-                  <AlertDescription className="text-destructive">
-                    <strong>Never above 75°F (24°C)</strong> - Heat stress can be fatal. Air conditioning is mandatory for chinchilla owners.
-                  </AlertDescription>
-                </Alert>
-              </div>
-            </div>
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Perhaps their most remarkable feature is their fur. Chinchillas have
+            the densest fur of any land mammal, with up to 80 hairs growing from
+            a single follicle (humans have just one). This incredible coat kept
+            them warm in the frigid Andes nights, but it also means they
+            overheat easily and cannot get wet—their fur is simply too dense to
+            dry properly.
+          </p>
 
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold">Essential Requirements</h3>
-              <ul className="space-y-5 text-muted-foreground">
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Air conditioning is mandatory during warm months</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Keep cage away from direct sunlight and windows</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Use fans for air circulation (not direct drafts)</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Monitor with accurate thermometer constantly</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Have backup cooling plan for power outages</span>
-                </li>
-              </ul>
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            In the wild, chinchillas are social animals living in herds called
+            &quot;colonies.&quot; They&apos;re prey animals, which influences their behavior:
+            they&apos;re naturally cautious, startle easily, and prefer to have
+            hiding spots available. They&apos;re also most active at dawn and dusk,
+            so don&apos;t be surprised if your chinchilla seems sleepy during the day
+            and full of energy in the evening.
+          </p>
 
-              <div className="p-6 bg-destructive/10 rounded-2xl border border-destructive/20">
-                <h4 className="font-semibold text-destructive mb-3">Signs of Overheating</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Lethargy, rapid breathing, drooling, red ears, lying flat. <strong>Seek immediate veterinary care!</strong>
-                </p>
-              </div>
-            </div>
-          </div>
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Chinchillas are intelligent and can learn their names, come when
+            called, and even learn simple tricks. They communicate through a
+            variety of sounds—from soft chirps when content to loud barks when
+            alarmed. Each chinchilla has a distinct personality; some are bold
+            and adventurous, others more reserved and cautious.
+          </p>
+        </div>
+      </section>
+
+      {/* Temperature - The Critical Factor */}
+      <section className="px-4 py-16 md:py-20 bg-secondary/30">
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-3xl md:text-4xl font-semibold mb-8 tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Temperature: The Most Critical Factor
+          </h2>
+
+          <Alert className="mb-8 border-destructive/50 bg-destructive/5">
+            <AlertTriangle className="h-5 w-5 text-destructive" />
+            <AlertDescription className="text-destructive">
+              <strong>Heat kills chinchillas.</strong> This is not an
+              exaggeration. If you cannot maintain temperatures below 75°F
+              year-round, a chinchilla is not the right pet for you.
+            </AlertDescription>
+          </Alert>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Temperature control is the single most important aspect of
+            chinchilla care, and it&apos;s non-negotiable. The ideal temperature
+            range is <strong className="text-foreground">60-70°F (15-21°C)</strong>. Temperatures above 75°F
+            (24°C) can cause heat stroke, which can be fatal within hours.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Because of their incredibly dense fur, chinchillas cannot cool
+            themselves effectively. They don&apos;t sweat, and panting isn&apos;t an
+            efficient cooling mechanism for them. Their large ears help
+            dissipate some heat, but it&apos;s not nearly enough in warm conditions.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">The Temperature + Humidity Rule</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Here&apos;s a critical formula to remember: the temperature in Fahrenheit
+            plus the humidity percentage should never exceed 150. For example,
+            if it&apos;s 70°F, humidity should stay below 80%. If it&apos;s 75°F, humidity
+            needs to be below 75%. High humidity makes it even harder for
+            chinchillas to regulate their body temperature.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Air Conditioning is Mandatory</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            If you live anywhere that experiences warm summers, air conditioning
+            isn&apos;t optional—it&apos;s required. Even in cooler climates, you need a
+            backup plan for power outages or AC failures. Some owners keep
+            granite or marble tiles in the freezer that chinchillas can lie on
+            in emergencies, but these are temporary measures only.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Placement Matters</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">Keep your chinchilla&apos;s cage:</p>
+          <ul className="list-disc list-inside my-4 space-y-2 text-muted-foreground">
+            <li>Away from windows and direct sunlight</li>
+            <li>Away from heating vents and radiators</li>
+            <li>In an interior room if possible (more stable temperature)</li>
+            <li>Away from kitchens and other heat-generating areas</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Signs of Overheating</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Learn to recognize heat stress immediately. Signs include: red ears,
+            drooling, lethargy, lying flat and stretched out, rapid breathing,
+            and in severe cases, unconsciousness. If you see these signs, move
+            your chinchilla to the coolest area possible and contact an
+            emergency vet immediately. You can place them on a cool (not cold)
+            tile, but never submerge them in water.
+          </p>
         </div>
       </section>
 
       {/* Housing */}
-      <section className="px-4 py-28 md:py-36 bg-secondary/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-20 lg:gap-28 items-center">
-            <div className="space-y-8 order-2 lg:order-1">
-              <h3 className="text-2xl font-semibold">Cage Requirements</h3>
-              <ul className="space-y-5 text-muted-foreground">
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Multi-level cages are highly recommended</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Bar spacing: ½ inch maximum to prevent escapes</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Solid shelves and platforms (no wire floors)</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Provide hiding spots, tunnels, and ledges</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Only chew-safe materials (no plastic)</span>
-                </li>
-              </ul>
+      <section className="px-4 py-16 md:py-20">
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-3xl md:text-4xl font-semibold mb-8 tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Housing Your Chinchilla
+          </h2>
 
-              <div className="p-6 bg-background rounded-2xl border">
-                <p className="text-sm text-muted-foreground">
-                  <strong>Recommended brands:</strong> Ferret Nation, Critter Nation, Quality Cage Crafters
-                </p>
-              </div>
-            </div>
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Chinchillas need space to jump, climb, and explore. In the wild,
+            they traverse rocky terrain and can jump up to 6 feet. Your cage
+            should accommodate this natural athleticism.
+          </p>
 
-            <div className="space-y-8 order-1 lg:order-2">
-              <div className="inline-flex items-center gap-3 px-4 py-2 bg-primary/10 rounded-full">
-                <Home className="w-5 h-5 text-primary" />
-                <span className="text-sm font-semibold text-primary">HOUSING</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
-                Safe & Spacious <span className="text-primary">Living</span>
-              </h2>
+          <h3 className="text-xl font-semibold mt-8 mb-4">Cage Size</h3>
 
-              <div className="p-6 bg-primary/5 rounded-2xl border border-primary/20">
-                <h3 className="text-xl font-semibold mb-3">Minimum Cage Size</h3>
-                <p className="text-3xl font-semibold text-primary mb-2" style={{ fontFamily: "var(--font-display)" }}>30" × 18" × 30"</p>
-                <p className="text-muted-foreground">Width × Depth × Height<br/>Larger is always better!</p>
-              </div>
-            </div>
-          </div>
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            The absolute minimum cage size for a single chinchilla is{" "}
+            <strong className="text-foreground">30&quot; wide x 18&quot; deep x 30&quot; tall</strong>, but we strongly
+            recommend going larger. Height is particularly important since
+            chinchillas love to climb and jump. A cage that&apos;s 4-5 feet tall with
+            multiple levels is ideal.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            For two chinchillas, increase the minimum to at least 36&quot; x 24&quot; x
+            36&quot;. Remember: bigger is always better when it comes to cages.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Cage Features</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Bar spacing</strong> should be no more than 1 inch, and
+            ideally ½ inch, especially for younger chinchillas who can squeeze
+            through surprisingly small gaps.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Solid surfaces</strong> are essential. Wire floors and
+            shelves can cause bumblefoot (a painful foot condition) and can
+            catch toes and legs. Use wooden shelves, fleece-covered platforms,
+            or solid metal pans.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Multi-level design</strong> with platforms at varying
+            heights lets chinchillas exercise their jumping instincts. Space
+            ledges so jumps are no more than 12-18 inches to prevent injuries.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Recommended Cages</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            The most popular cages among chinchilla owners are the Ferret Nation
+            and Critter Nation models, which can be stacked for extra height.
+            Quality Cage Crafters makes excellent chinchilla-specific cages as
+            well. Avoid aquariums (poor ventilation) and small &quot;starter&quot; cages
+            marketed for chinchillas—they&apos;re almost always too small.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Inside the Cage</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">Every chinchilla cage needs:</p>
+          <ul className="list-disc list-inside my-4 space-y-2 text-muted-foreground">
+            <li><strong className="text-foreground">Hiding house</strong> - A wooden house or hidey-hole where they can retreat and feel safe</li>
+            <li><strong className="text-foreground">Exercise wheel</strong> - Minimum 15&quot; diameter with a solid running surface (no rungs or mesh)</li>
+            <li><strong className="text-foreground">Water bottle</strong> - Glass bottles are preferred as chinchillas will chew through plastic</li>
+            <li><strong className="text-foreground">Hay rack or feeder</strong> - To keep hay clean and accessible</li>
+            <li><strong className="text-foreground">Food dish</strong> - Heavy ceramic or one that attaches to the cage to prevent tipping</li>
+            <li><strong className="text-foreground">Ledges and platforms</strong> - For climbing and jumping. Kiln-dried pine or poplar wood is safe</li>
+            <li><strong className="text-foreground">Chew toys</strong> - Essential for dental health</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Bedding</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            For the cage floor, kiln-dried pine shavings or aspen shavings work
+            well. Avoid cedar (toxic) and any scented beddings. Many owners use
+            fleece liners, which are washable and economical long-term, but they
+            require frequent changing to stay clean and dry.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Cage Placement</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Beyond temperature considerations, place the cage in a relatively
+            quiet area away from TVs, stereos, and high-traffic zones.
+            Chinchillas have sensitive hearing. However, they do enjoy being
+            part of family life—a quiet corner of a living room often works well
+            once they&apos;re adjusted.
+          </p>
         </div>
       </section>
 
       {/* Diet & Nutrition */}
-      <section className="px-4 py-28 md:py-36">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
-              Diet & <span className="text-primary">Nutrition</span>
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Proper nutrition is essential for digestive health and dental care
-            </p>
-          </div>
+      <section className="px-4 py-16 md:py-20 bg-secondary/30">
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-3xl md:text-4xl font-semibold mb-8 tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Diet & Nutrition
+          </h2>
 
-          <div className="grid lg:grid-cols-3 gap-10 md:gap-12">
-            <div className="space-y-6">
-              <div className="text-center">
-                <div className="mx-auto w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                  <Utensils className="w-10 h-10 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4">Daily Diet</h3>
-              </div>
-              <ul className="space-y-4 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span><strong>Unlimited</strong> timothy hay</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span><strong>1–2 tbsp</strong> high-quality pellets</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span><strong>Fresh water</strong> daily</span>
-                </li>
-              </ul>
-            </div>
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Chinchillas have a sensitive digestive system that&apos;s adapted to a
+            high-fiber, low-fat, low-sugar diet. In the wild, they eat grasses,
+            bark, and other tough plant materials. Domestic chinchillas thrive
+            on a simple diet that mimics this—but simplicity here is a feature,
+            not a limitation.
+          </p>
 
-            <div className="space-y-6">
-              <div className="text-center">
-                <div className="mx-auto w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mb-4">
-                  <BookOpen className="w-10 h-10 text-green-600" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4">Recommended Pellets</h3>
-              </div>
-              <ul className="space-y-4 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Oxbow Chinchilla Deluxe</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Mazuri Chinchilla Diet</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-green-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Tradition Chinchilla Food</span>
-                </li>
-              </ul>
-              <p className="text-sm text-muted-foreground">16–20% protein, ≤3.5% fat, ≥18–20% fiber</p>
-            </div>
+          <h3 className="text-xl font-semibold mt-8 mb-4">The Foundation: Hay</h3>
 
-            <div className="space-y-6">
-              <div className="text-center">
-                <div className="mx-auto w-20 h-20 bg-destructive/10 rounded-full flex items-center justify-center mb-4">
-                  <AlertTriangle className="w-10 h-10 text-destructive" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4 text-destructive">Foods to Avoid</h3>
-              </div>
-              <ul className="space-y-4 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Fresh fruits and vegetables</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Nuts, seeds, dried fruits</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Dairy products</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Sugary or colored treats</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Unlimited timothy hay</strong> should make up the bulk of
+            your chinchilla&apos;s diet—roughly 80%. Hay provides essential fiber for
+            digestive health and keeps their continuously-growing teeth worn
+            down. Your chinchilla should always have fresh hay available.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Timothy hay is the gold standard. You can also offer orchard grass,
+            botanical hay, or oat hay for variety. Avoid alfalfa hay for adult
+            chinchillas—it&apos;s too high in calcium and protein. Alfalfa is only
+            appropriate for pregnant females, nursing mothers, or chinchillas
+            under 6 months old.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Pellets</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Feed <strong className="text-foreground">1-2 tablespoons</strong> of high-quality chinchilla
+            pellets daily. Look for pellets that are:
+          </p>
+          <ul className="list-disc list-inside my-4 space-y-2 text-muted-foreground">
+            <li>16-20% protein</li>
+            <li>2-4% fat (no more than 3.5% ideally)</li>
+            <li>18-20%+ fiber</li>
+            <li>Plain pellets only—no mixes with seeds, dried fruit, or treats</li>
+          </ul>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Recommended brands include Oxbow Essentials Chinchilla Food, Mazuri
+            Chinchilla Diet, and Tradition Chinchilla Food. Stick with one brand
+            rather than switching frequently, as sudden diet changes can cause
+            digestive upset.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Water</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Fresh, clean water should always be available. Use a glass water
+            bottle (chinchillas chew plastic) and check daily that it&apos;s
+            functioning properly. Change the water every day or two, even if it
+            doesn&apos;t look empty.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Treats</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Treats should be given sparingly—no more than a teaspoon total per
+            day, and not every day. Safe treats include:
+          </p>
+          <ul className="list-disc list-inside my-4 space-y-2 text-muted-foreground">
+            <li>Plain shredded wheat (1 piece)</li>
+            <li>Plain cheerios (2-3 pieces)</li>
+            <li>Rosehips (1-2)</li>
+            <li>Dried hibiscus flowers</li>
+            <li>Old-fashioned rolled oats (a pinch)</li>
+            <li>Goji berries (1, occasionally)</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Foods to Absolutely Avoid</h3>
+
+          <Alert className="my-6 border-destructive/50 bg-destructive/5">
+            <AlertTriangle className="h-5 w-5 text-destructive" />
+            <AlertDescription>
+              The following foods are dangerous for chinchillas and should never
+              be fed, even in small amounts.
+            </AlertDescription>
+          </Alert>
+
+          <ul className="list-disc list-inside my-4 space-y-2 text-muted-foreground">
+            <li><strong className="text-foreground">Fresh fruits and vegetables</strong> - Too much water and sugar; can cause bloat and diarrhea</li>
+            <li><strong className="text-foreground">Nuts and seeds</strong> - Too high in fat</li>
+            <li><strong className="text-foreground">Dried fruits</strong> - Far too much sugar</li>
+            <li><strong className="text-foreground">Corn</strong> - Cannot be digested properly</li>
+            <li><strong className="text-foreground">Dairy products</strong> - Chinchillas are lactose intolerant</li>
+            <li><strong className="text-foreground">Bread, crackers, human snacks</strong> - Wrong nutrition profile</li>
+            <li><strong className="text-foreground">Chocolate, caffeine</strong> - Toxic</li>
+            <li><strong className="text-foreground">&quot;Yogurt drops&quot; and commercial treats</strong> - Despite being sold for chinchillas, most are full of sugar</li>
+          </ul>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            The biggest mistake new owners make is wanting to &quot;treat&quot; their
+            chinchilla with variety. Chinchillas genuinely thrive on a simple,
+            consistent diet. The hay and pellets they eat every day are not
+            boring to them—they&apos;re exactly what their bodies need.
+          </p>
         </div>
       </section>
 
       {/* Dust Baths */}
-      <section className="px-4 py-28 md:py-36 bg-secondary/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-20 lg:gap-28 items-center">
-            <div className="space-y-8">
-              <div className="inline-flex items-center gap-3 px-4 py-2 bg-primary/10 rounded-full">
-                <Droplets className="w-5 h-5 text-primary" />
-                <span className="text-sm font-semibold text-primary">GROOMING</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
-                Dust <span className="text-primary">Baths</span>
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Chinchillas need dust baths to maintain their incredibly dense fur. Their fur is so thick that water cannot dry properly and can cause fungal infections.
-              </p>
-
-              <Alert className="border-primary/50 bg-primary/5">
-                <AlertTriangle className="h-5 w-5 text-primary" />
-                <AlertDescription>
-                  <strong>Never get chinchillas wet!</strong> Their dense fur doesn't dry properly and can cause serious health issues.
-                </AlertDescription>
-              </Alert>
-            </div>
-
-            <div className="space-y-6">
-              <div className="p-6 bg-primary/5 rounded-2xl border border-primary/20">
-                <h3 className="text-xl font-semibold mb-3">Bath Schedule</h3>
-                <p className="text-3xl font-semibold text-primary mb-2" style={{ fontFamily: "var(--font-display)" }}>2–3× Weekly</p>
-                <p className="text-muted-foreground">10–15 minutes per session</p>
-              </div>
-
-              <ul className="space-y-5 text-muted-foreground">
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Use only chinchilla dust (Blue Cloud or Blue Sparkle)</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Provide proper dust bath house or container</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Remove bath after use to prevent overuse</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Rolling and flipping is normal behavior!</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Health & Exercise */}
-      <section className="px-4 py-28 md:py-36">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
-              Health & <span className="text-primary">Exercise</span>
-            </h2>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-            <div className="space-y-8">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                  <Heart className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="text-2xl font-semibold">Daily Exercise</h3>
-              </div>
-              <ul className="space-y-5 text-muted-foreground">
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Provide large exercise wheel (15" minimum diameter)</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Supervised playtime outside cage (1-2 hours daily)</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Chinchilla-proof the play area thoroughly</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Provide climbing opportunities and platforms</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="space-y-8">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-destructive/10 rounded-full flex items-center justify-center">
-                  <Shield className="w-8 h-8 text-destructive" />
-                </div>
-                <h3 className="text-2xl font-semibold">Warning Signs</h3>
-              </div>
-              <ul className="space-y-5 text-muted-foreground">
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Lethargy or excessive hiding</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Not eating or drinking for 12+ hours</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Soft or absent droppings</span>
-                </li>
-                <li className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2.5 flex-shrink-0"></div>
-                  <span className="text-lg leading-relaxed">Difficulty breathing or discharge</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Veterinary Care CTA */}
-      <section className="px-4 py-28 md:py-36 bg-secondary/30">
-        <div className="max-w-4xl mx-auto text-center space-y-10">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
-            Find an <span className="text-primary">Exotic Vet</span>
+      <section className="px-4 py-16 md:py-20">
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-3xl md:text-4xl font-semibold mb-8 tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Dust Baths
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Not all veterinarians are experienced with chinchillas. Look for "exotic animal" or "small mammal" specialists in your area for the best care.
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            One of the most delightful aspects of chinchilla ownership is
+            watching them take dust baths. They roll, flip, and shimmy with
+            obvious joy—and it&apos;s not just adorable, it&apos;s essential for their
+            health.
           </p>
-          <div className="grid md:grid-cols-2 gap-8 text-left max-w-3xl mx-auto">
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold">Regular Care</h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Annual wellness exams</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Dental checks (teeth grow continuously)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Weight monitoring</span>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-destructive">Emergencies</h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Overheating symptoms</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Not eating 24+ hours</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-destructive rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Labored breathing</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Why Dust, Not Water?</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Remember that incredibly dense fur? It&apos;s so thick that if it gets
+            wet, it won&apos;t dry properly. Moisture trapped against the skin can
+            cause fungal infections, fur rot, and serious health problems.{" "}
+            <strong className="text-foreground">Never bathe a chinchilla in water.</strong>
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Dust baths work differently. The fine volcanic dust absorbs oils and
+            moisture from the fur, keeping it clean, fluffy, and healthy. In the
+            wild, chinchillas roll in volcanic ash; domestic chinchilla dust
+            replicates this.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Dust Bath Routine</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Offer dust baths <strong className="text-foreground">2-3 times per week</strong> for about 10-15
+            minutes each session. In humid climates, you may need to offer baths
+            more frequently; in very dry climates, less often. Over-bathing can
+            dry out their skin.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Use a container large enough for your chinchilla to roll around in
+            freely. Many owners use a &quot;bathhouse&quot; (an enclosed container with an
+            entrance), which helps contain the dust. Fish bowls, large jars
+            turned on their sides, or commercial chinchilla bath houses all work
+            well.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Fill the container with about 1-2 inches of dust. You can reuse dust
+            for several baths—sift out any droppings and add fresh dust as
+            needed. Replace the dust entirely every few weeks or if it starts to
+            look clumpy or dirty.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Choosing Dust</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Use only dust specifically made for chinchillas. The best options
+            are Blue Cloud or Blue Sparkle chinchilla dust. Avoid &quot;sand&quot; or
+            products meant for other animals—the particle size matters for
+            effectiveness and respiratory health.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Remove the bath after the session is over. Leaving it in the cage
+            leads to overuse (they&apos;ll keep bathing), potential bathroom use, and
+            unnecessary dust in the air.
+          </p>
         </div>
       </section>
 
-      {/* Remember */}
-      <section className="px-4 py-28 md:py-36">
-        <div className="max-w-5xl mx-auto text-center space-y-16">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight" style={{ fontFamily: "var(--font-display)" }}>
-            Remember
+      {/* Exercise & Enrichment */}
+      <section className="px-4 py-16 md:py-20 bg-secondary/30">
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-3xl md:text-4xl font-semibold mb-8 tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Exercise & Enrichment
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-12 md:gap-16">
-            <div className="space-y-4">
-              <Clock className="w-12 h-12 text-primary mx-auto" />
-              <h3 className="text-xl font-semibold">Long Commitment</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Chinchillas live 15-20 years with proper care
-              </p>
-            </div>
-            <div className="space-y-4">
-              <Thermometer className="w-12 h-12 text-primary mx-auto" />
-              <h3 className="text-xl font-semibold">Temperature Critical</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Keep cool, dry environment always
-              </p>
-            </div>
-            <div className="space-y-4">
-              <Heart className="w-12 h-12 text-primary mx-auto" />
-              <h3 className="text-xl font-semibold">Social Animals</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                They thrive with companionship and interaction
-              </p>
-            </div>
-          </div>
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Chinchillas are active, athletic animals. In the wild, they cover
+            significant terrain, jumping between rocks and running from
+            predators. A cage, no matter how large, can&apos;t fully replicate this.
+            Regular exercise and enrichment are essential for their physical and
+            mental health.
+          </p>
 
-          <div className="p-8 bg-secondary/30 rounded-2xl">
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Questions about chinchilla care? We're here to help! Contact us anytime for guidance and support.
-            </p>
-          </div>
+          <h3 className="text-xl font-semibold mt-8 mb-4">Playtime Outside the Cage</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Aim for <strong className="text-foreground">1-2 hours of supervised playtime</strong> outside
+            the cage daily, ideally in the evening when they&apos;re most active.
+            This is when you&apos;ll really see your chinchilla&apos;s personality shine
+            as they explore, jump, and play.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            The key word here is &quot;supervised.&quot; Chinchillas are escape artists
+            and chewers. They will find and chew electrical cords, squeeze into
+            impossibly small spaces, nibble on furniture, and generally cause
+            chaos if left unsupervised.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Chinchilla-Proofing a Room</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">Before playtime, make sure the room is safe:</p>
+          <ul className="list-disc list-inside my-4 space-y-2 text-muted-foreground">
+            <li><strong className="text-foreground">Cover or remove all cords</strong> - Electrical cords are extremely dangerous</li>
+            <li><strong className="text-foreground">Block access behind furniture</strong> - They will get back there and you will not get them out easily</li>
+            <li><strong className="text-foreground">Remove houseplants</strong> - Many are toxic</li>
+            <li><strong className="text-foreground">Close windows and doors</strong> - Including closet doors</li>
+            <li><strong className="text-foreground">Check for small spaces</strong> - Under doors, behind appliances, etc.</li>
+            <li><strong className="text-foreground">Remove or protect anything valuable</strong> - They will chew it</li>
+            <li><strong className="text-foreground">Keep other pets out</strong> - Even &quot;friendly&quot; cats and dogs</li>
+          </ul>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Many owners create a dedicated &quot;chinchilla-proof&quot; room or use a
+            large playpen area. A bathroom can work well (toilet lid down,
+            chemicals removed) as it&apos;s easy to clean and has fewer hiding spots.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Exercise Wheel</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            A proper exercise wheel is essential cage furniture. The wheel must
+            be at least <strong className="text-foreground">15 inches in diameter</strong>—anything smaller
+            forces their spine to curve unnaturally. The running surface should
+            be solid (no rungs or mesh that can trap feet).
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Popular options include the Chin Spin, Silver Surfer, and similar
+            solid-surface, large-diameter wheels. Many chinchillas will run for
+            hours, especially at night.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Mental Enrichment</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Chinchillas are intelligent and need mental stimulation. Provide:
+          </p>
+          <ul className="list-disc list-inside my-4 space-y-2 text-muted-foreground">
+            <li><strong className="text-foreground">Chew toys</strong> - A necessity for dental health and entertainment</li>
+            <li><strong className="text-foreground">Tunnels and tubes</strong> - Cardboard tubes (untreated), PVC pipes, wooden tunnels</li>
+            <li><strong className="text-foreground">Rearrange the cage</strong> - Moving ledges and toys around periodically provides novelty</li>
+            <li><strong className="text-foreground">Foraging opportunities</strong> - Hide hay or treats for them to find</li>
+            <li><strong className="text-foreground">Interaction with you</strong> - Many chinchillas enjoy being talked to, held, and played with</li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Dental Health & Chewing */}
+      <section className="px-4 py-16 md:py-20">
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-3xl md:text-4xl font-semibold mb-8 tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Dental Health & Chewing
+          </h2>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Like all rodents, chinchillas have teeth that grow continuously
+            throughout their lives. Unlike us, they need to constantly wear
+            their teeth down, or they&apos;ll develop painful dental problems that
+            can prevent eating and become life-threatening.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">The Importance of Chewing</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            This is why unlimited hay is so important—the constant chewing
+            action wears down their teeth naturally. But chinchillas also need
+            wooden chew toys to gnaw on. This isn&apos;t optional enrichment; it&apos;s a
+            health requirement.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Safe Wood for Chewing</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Safe woods include kiln-dried pine, poplar, aspen, apple, pear,
+            willow, and birch. Always ensure wood is untreated, unpainted, and
+            free of pesticides. Many pet stores sell chinchilla-safe wood toys,
+            and you can also purchase from online vendors who specialize in
+            small animal supplies.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Woods to avoid:</strong> Cedar (toxic), fresh or
+            green/undried wood, treated wood, plywood, MDF, and any wood of
+            unknown origin.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Signs of Dental Problems</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">Watch for these warning signs:</p>
+          <ul className="list-disc list-inside my-4 space-y-2 text-muted-foreground">
+            <li>Drooling or wet fur around the mouth</li>
+            <li>Dropping food while eating (&quot;slobbers&quot;)</li>
+            <li>Weight loss</li>
+            <li>Reduced appetite or difficulty eating</li>
+            <li>Pawing at the mouth</li>
+            <li>Visible changes in tooth alignment</li>
+          </ul>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Dental problems require veterinary care. An exotic vet can trim
+            overgrown teeth or address malocclusion (misaligned teeth). Caught
+            early, most dental issues are manageable.
+          </p>
+        </div>
+      </section>
+
+      {/* Health & Common Issues */}
+      <section className="px-4 py-16 md:py-20 bg-secondary/30">
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-3xl md:text-4xl font-semibold mb-8 tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Health & Common Issues
+          </h2>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            With proper care, chinchillas are generally healthy animals. However,
+            knowing what problems can occur—and what&apos;s normal versus concerning—helps
+            you catch issues early.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Signs of a Healthy Chinchilla</h3>
+          <ul className="list-disc list-inside my-4 space-y-2 text-muted-foreground">
+            <li>Bright, clear eyes</li>
+            <li>Clean, dry nose</li>
+            <li>Soft, fluffy fur without bald patches</li>
+            <li>Active and alert during evening hours</li>
+            <li>Good appetite and regular eating</li>
+            <li>Firm, dry, pellet-shaped droppings</li>
+            <li>Steady weight (weigh weekly to track)</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Common Health Issues</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">GI Stasis:</strong> A slowdown or stoppage of the digestive
+            system. Signs include reduced or absent droppings, loss of appetite,
+            and lethargy. This is an emergency—chinchillas can deteriorate
+            rapidly without gut movement. Seek vet care immediately.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Dental Problems:</strong> As discussed above, overgrown or
+            misaligned teeth are common. Regular hay consumption and chew toys
+            help prevent issues.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Fur Rings:</strong> In males, fur can wrap around the penis
+            inside the sheath, causing pain and potentially serious problems.
+            Check male chinchillas regularly (your vet can show you how).
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Respiratory Infections:</strong> Sneezing, discharge from
+            nose or eyes, labored breathing, or wheezing all warrant vet
+            attention. Chinchillas can develop pneumonia, which is very serious.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Fungal Infections:</strong> Hair loss in patches, especially
+            around the nose, ears, or feet, may indicate ringworm or other
+            fungal infections. These are treatable but require diagnosis and
+            medication.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Heat Stroke:</strong> Red ears, drooling, lethargy, and
+            lying flat are emergency signs. Move the chinchilla to a cool area
+            and seek immediate vet care.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Finding an Exotic Vet</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Not all veterinarians are experienced with chinchillas. Before you
+            bring a chinchilla home, locate an <strong className="text-foreground">exotic animal veterinarian</strong> or
+            a vet who specializes in small mammals. Ask specifically about their
+            experience with chinchillas.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Establish a relationship with this vet before emergencies happen.
+            Annual wellness checks are recommended, and having a vet who knows
+            your chinchilla&apos;s baseline health is invaluable if problems arise.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">When to Seek Emergency Care</h3>
+
+          <Alert className="my-6 border-destructive/50 bg-destructive/5">
+            <AlertTriangle className="h-5 w-5 text-destructive" />
+            <AlertDescription>
+              Contact an emergency vet immediately if your chinchilla shows:
+              not eating for 12+ hours, no droppings for 12+ hours, labored
+              breathing, extreme lethargy, signs of pain, or any symptoms of
+              heat stroke.
+            </AlertDescription>
+          </Alert>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Chinchillas hide illness well (a prey animal instinct), so by the
+            time symptoms are obvious, the situation may be serious. When in
+            doubt, call your vet. It&apos;s always better to check and be reassured
+            than to wait too long.
+          </p>
+        </div>
+      </section>
+
+      {/* Behavior & Socialization */}
+      <section className="px-4 py-16 md:py-20">
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-3xl md:text-4xl font-semibold mb-8 tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Behavior & Socialization
+          </h2>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Understanding chinchilla behavior helps you build a trusting
+            relationship with your pet and recognize when something might be
+            wrong.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Normal Behaviors</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Popcorning:</strong> Sudden, explosive jumps and bounces,
+            often against walls. This is a sign of happiness and excitement—one
+            of the most endearing chinchilla behaviors.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Wall surfing:</strong> Running along vertical surfaces,
+            bouncing off walls. Another sign of a happy, energetic chinchilla.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Fur slip:</strong> When frightened or handled roughly,
+            chinchillas can release a patch of fur. This is a defense mechanism
+            against predators. The fur grows back, but it&apos;s a sign of stress.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Barking:</strong> A sharp, loud alarm call. Usually means
+            they&apos;re startled or warning of perceived danger.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Chirping/Cooing:</strong> Soft sounds indicating contentment.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Teeth chattering:</strong> Can mean they&apos;re content, or if
+            aggressive, a warning. Context matters.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <strong className="text-foreground">Spraying urine:</strong> Females especially may spray when
+            annoyed or defensive. Not pleasant, but normal.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Building Trust</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Chinchillas aren&apos;t typically cuddly pets right away—trust must be
+            earned over time. Start by simply sitting near the cage, talking
+            softly. Offer treats from your hand. Let them come to you rather
+            than grabbing at them.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Some chinchillas become very affectionate with patient owners;
+            others remain more independent. Respect their personality. Even a
+            chinchilla that doesn&apos;t want to be held can enjoy interaction and
+            playtime on their own terms.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Handling</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            When picking up a chinchilla, support their body firmly but gently.
+            Never grab them by the tail (it can break off) or squeeze them.
+            Scoop under their body and support their hindquarters. Many
+            chinchillas prefer to sit on your hand or arm rather than being
+            clutched.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Keep handling sessions short at first, especially with a new
+            chinchilla. End on a positive note before they become stressed.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Single vs. Pairs</h3>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Chinchillas are social animals and often do well in pairs or small
+            groups—but not always. Same-sex pairs (two males or two females) who
+            are properly bonded can be wonderful companions for each other.
+            However, introductions must be done carefully; chinchillas who don&apos;t
+            get along can seriously injure each other.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            A single chinchilla can live a happy life with sufficient human
+            interaction and enrichment. If you&apos;re considering adding a second
+            chinchilla, research proper bonding procedures thoroughly or seek
+            guidance from experienced owners.
+          </p>
+        </div>
+      </section>
+
+      {/* Supplies Checklist */}
+      <section className="px-4 py-16 md:py-20 bg-secondary/30">
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-3xl md:text-4xl font-semibold mb-8 tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Supplies Checklist
+          </h2>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Before bringing a chinchilla home, make sure you have everything ready.
+            Here&apos;s what you&apos;ll need:
+          </p>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Essential</h3>
+          <ul className="list-disc list-inside my-4 space-y-2 text-muted-foreground">
+            <li>Large, multi-level cage with proper bar spacing</li>
+            <li>Exercise wheel (15&quot;+ diameter, solid surface)</li>
+            <li>Glass water bottle</li>
+            <li>Food dish (heavy ceramic or cage-mounted)</li>
+            <li>Hay rack or feeder</li>
+            <li>Wooden hiding house</li>
+            <li>Kiln-dried pine or aspen bedding (or fleece liners)</li>
+            <li>Timothy hay (buy in bulk to save money)</li>
+            <li>Quality chinchilla pellets</li>
+            <li>Chinchilla dust</li>
+            <li>Dust bath container</li>
+            <li>Wooden ledges and platforms</li>
+            <li>Chew toys (apple sticks, wooden toys, pumice)</li>
+            <li>Thermometer for monitoring room temperature</li>
+            <li>Air conditioning (or reliable way to keep room cool)</li>
+            <li>Carrier for vet visits</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Recommended</h3>
+          <ul className="list-disc list-inside my-4 space-y-2 text-muted-foreground">
+            <li>Kitchen scale for weekly weigh-ins</li>
+            <li>Extra water bottles (backup)</li>
+            <li>Variety of safe chew toys</li>
+            <li>Fleece hammocks and tunnels</li>
+            <li>Playpen for out-of-cage time</li>
+            <li>Granite or marble tile for cooling (emergencies)</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mt-8 mb-4">Ongoing Costs</h3>
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Plan for monthly expenses including hay, pellets, bedding, and
+            occasional supplies like dust and chew toys. Set aside funds for
+            veterinary care—exotic vet visits can be expensive, and emergencies
+            happen.
+          </p>
+        </div>
+      </section>
+
+      {/* Closing */}
+      <section className="px-4 py-16 md:py-20">
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="text-3xl md:text-4xl font-semibold mb-8 tracking-tight"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            A Lifetime Commitment
+          </h2>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Chinchillas can live 15-20 years—that&apos;s longer than most dogs. When
+            you adopt a chinchilla, you&apos;re committing to care for them through
+            moves, life changes, and whatever else comes your way. It&apos;s a
+            significant commitment, but for those who make it, the reward is a
+            fascinating, beautiful, and entertaining companion.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Every chinchilla who comes through our rescue has their own story,
+            personality, and quirks. Some came from homes where their needs
+            weren&apos;t understood; others from owners whose circumstances changed.
+            All of them deserve the chance to live out their long lives in homes
+            where they&apos;re properly cared for and loved.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            If you have questions about chinchilla care that aren&apos;t answered
+            here, please{" "}
+            <Link href="/contact" className="text-primary hover:underline">
+              reach out to us
+            </Link>
+            . We&apos;re always happy to help, whether you&apos;re considering adoption or
+            already have a chinchilla at home. And if you&apos;re ready to give a
+            chinchilla a forever home,{" "}
+            <Link href="/adopt" className="text-primary hover:underline">
+              meet our available chinchillas
+            </Link>
+            .
+          </p>
         </div>
       </section>
     </div>

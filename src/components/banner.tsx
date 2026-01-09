@@ -42,7 +42,9 @@ export default function Banner() {
               href="https://www.canadianpetexpo.ca/"
               target="_blank"
               rel="noopener noreferrer"
+              className="flex items-center gap-2"
             >
+              <span aria-hidden="true">&#10052;</span>
               <strong className="font-semibold">Canadian Pet Expo</strong>
               <svg
                 viewBox="0 0 2 2"
@@ -51,7 +53,8 @@ export default function Banner() {
               >
                 <circle r={1} cx={1} cy={1} />
               </svg>
-              November 22-23, 2025
+              April 3-5, 2026
+              <span aria-hidden="true">&#10052;</span>
             </a>
           </p>
           <button

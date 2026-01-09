@@ -268,29 +268,18 @@ function ApplicationForm() {
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              <SelectItem value="AB">Alberta</SelectItem>
-                              <SelectItem value="BC">
-                                British Columbia
-                              </SelectItem>
-                              <SelectItem value="MB">Manitoba</SelectItem>
-                              <SelectItem value="NB">New Brunswick</SelectItem>
-                              <SelectItem value="NL">
-                                Newfoundland and Labrador
-                              </SelectItem>
-                              <SelectItem value="NS">Nova Scotia</SelectItem>
-                              <SelectItem value="ON">Ontario</SelectItem>
-                              <SelectItem value="PE">
-                                Prince Edward Island
-                              </SelectItem>
-                              <SelectItem value="QC">Quebec</SelectItem>
-                              <SelectItem value="SK">Saskatchewan</SelectItem>
-                              <SelectItem value="NT">
-                                Northwest Territories
-                              </SelectItem>
-                              <SelectItem value="NU">Nunavut</SelectItem>
-                              <SelectItem value="YT">Yukon</SelectItem>
+                              {allowedProvinces.map((province) => (
+                                <SelectItem key={province.code} value={province.code}>
+                                  {province.name}
+                                </SelectItem>
+                              ))}
                             </SelectContent>
                           </Select>
+                          {provinceRestrictionMessage && (
+                            <FormDescription>
+                              {provinceRestrictionMessage}
+                            </FormDescription>
+                          )}
                           <FormMessage />
                         </FormItem>
                       )}

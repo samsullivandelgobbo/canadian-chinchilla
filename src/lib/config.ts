@@ -9,8 +9,7 @@ export const RESCUE_CONFIG = {
     
     // Restrict applications to specific provinces
     // Set to 'all' to accept from all provinces, or provide array of province codes
-    allowedProvinces: 'all' as 'all' | string[],
-    // Example: ['ON', 'QC', 'MB'] for Ontario, Quebec, and Manitoba only
+    allowedProvinces: ['ON'] as 'all' | string[],
     
     // Minimum age for primary applicant
     minimumAge: 18,
@@ -41,11 +40,11 @@ export const RESCUE_CONFIG = {
 
   // Contact information
   contact: {
-    email: 'info@chinchillarescue.ca',
-    adoptionEmail: 'adopt@chinchillarescue.ca',
-    surrenderEmail: 'surrender@chinchillarescue.ca',
-    emergencyEmail: 'emergency@chinchillarescue.ca',
-    volunteerEmail: 'volunteer@chinchillarescue.ca',
+    email: 'info@canadianchinchilla.ca',
+    adoptionEmail: 'adopt@canadianchinchilla.ca',
+    surrenderEmail: 'surrender@canadianchinchilla.ca',
+    emergencyEmail: 'emergency@canadianchinchilla.ca',
+    volunteerEmail: 'volunteer@canadianchinchilla.ca',
   },
 
   // Site features
