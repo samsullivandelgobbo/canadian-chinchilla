@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-export const Logo = () => {
+const Logo = () => {
   return (
     <div
       style={{
@@ -29,3 +29,5 @@ export const Logo = () => {
     </div>
   )
 }
+
+export default Logo

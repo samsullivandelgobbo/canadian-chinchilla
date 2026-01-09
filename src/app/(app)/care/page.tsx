@@ -239,10 +239,26 @@ export default function CarePage() {
           <h3 className="text-xl font-semibold mt-8 mb-4">Recommended Cages</h3>
 
           <p className="mb-4 leading-relaxed text-muted-foreground">
-            The most popular cages among chinchilla owners are the Ferret Nation
-            and Critter Nation models, which can be stacked for extra height.
-            Quality Cage Crafters makes excellent chinchilla-specific cages as
-            well. Avoid aquariums (poor ventilation) and small &quot;starter&quot; cages
+            The <strong className="text-foreground">Critter Nation</strong> and{" "}
+            <strong className="text-foreground">Ferret Nation</strong> cages by Midwest Homes
+            for Pets are the gold standard for chinchilla housing. They offer excellent
+            bar spacing, full-width double doors for easy cleaning, and can be stacked
+            for more vertical space. They&apos;re readily available from major retailers
+            like Amazon and Chewy, with replacement parts easily sourced.
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            <em>Note: We previously recommended Quality Cage Crafters, but as of 2024
+            they appear to have stopped fulfilling orders while continuing to accept payments.
+            Read our{" "}
+            <Link href="/blog/quality-cage-crafters-warning" className="text-primary hover:underline">
+              full report on Quality Cage Crafters
+            </Link>{" "}
+            before considering any purchase from them.</em>
+          </p>
+
+          <p className="mb-4 leading-relaxed text-muted-foreground">
+            Avoid aquariums (poor ventilation) and small &quot;starter&quot; cages
             marketed for chinchillas—they&apos;re almost always too small.
           </p>
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-export const Icon = () => {
+const Icon = () => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', width: '32px', height: '32px' }}>
       <Image
@@ -14,3 +14,5 @@ export const Icon = () => {
     </div>
   )
 }
+
+export default Icon

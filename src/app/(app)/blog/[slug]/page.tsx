@@ -84,13 +84,13 @@ function renderRichText(content: any): string {
           return `<blockquote class="border-l-4 border-primary pl-4 italic my-4">${renderChildren(node.children)}</blockquote>`
         }
         if (node.type === 'ul') {
-          return `<ul class="list-disc list-inside my-4 space-y-2">${renderChildren(node.children)}</ul>`
+          return `<ul class="list-disc pl-6 my-4 space-y-2">${renderListItems(node.children)}</ul>`
         }
         if (node.type === 'ol') {
-          return `<ol class="list-decimal list-inside my-4 space-y-2">${renderChildren(node.children)}</ol>`
+          return `<ol class="list-decimal pl-6 my-4 space-y-2">${renderListItems(node.children)}</ol>`
         }
         if (node.type === 'li') {
-          return `<li>${renderChildren(node.children)}</li>`
+          return `<li class="pl-1">${renderChildren(node.children)}</li>`
         }
         // Default paragraph
         return `<p class="mb-4 leading-relaxed">${renderChildren(node.children || [])}</p>`
@@ -106,6 +106,7 @@ function renderChildren(children: any[]): string {
 
   return children
     .map((child) => {
+      // Text node
       if (child.text !== undefined) {
         let text = child.text
         if (child.bold) text = `<strong>${text}</strong>`
@@ -113,6 +114,54 @@ function renderChildren(children: any[]): string {
         if (child.underline) text = `<u>${text}</u>`
         if (child.code) text = `<code class="bg-muted px-1 py-0.5 rounded text-sm">${text}</code>`
         return text
+      }
+      // Nested block elements
+      if (child.type === 'ul') {
+        return `<ul class="list-disc pl-6 mt-2 space-y-1">${renderListItems(child.children)}</ul>`
+      }
+      if (child.type === 'ol') {
+        return `<ol class="list-decimal pl-6 mt-2 space-y-1">${renderListItems(child.children)}</ol>`
+      }
+      if (child.type === 'lic' || child.type === 'list-item-content') {
+        return renderChildren(child.children)
+      }
+      // Recurse into children if present
+      if (child.children) {
+        return renderChildren(child.children)
+      }
+      return ''
+    })
+    .join('')
+}
+
+function renderListItems(children: any[]): string {
+  if (!Array.isArray(children)) return ''
+
+  return children
+    .map((child) => {
+      // Handle list item nodes (various Slate naming conventions)
+      if (child.type === 'li' || child.type === 'list-item') {
+        const content = renderChildren(child.children || [])
+        return `<li class="pl-1">${content}</li>`
+      }
+      // If it's text directly in the list, wrap it
+      if (child.text !== undefined) {
+        let text = child.text
+        if (child.bold) text = `<strong>${text}</strong>`
+        if (child.italic) text = `<em>${text}</em>`
+        if (child.underline) text = `<u>${text}</u>`
+        return `<li class="pl-1">${text}</li>`
+      }
+      // Handle nested lists
+      if (child.type === 'ul') {
+        return `<ul class="list-disc pl-6 mt-2 space-y-1">${renderListItems(child.children)}</ul>`
+      }
+      if (child.type === 'ol') {
+        return `<ol class="list-decimal pl-6 mt-2 space-y-1">${renderListItems(child.children)}</ol>`
+      }
+      // Fallback: try to render children if present
+      if (child.children) {
+        return `<li class="pl-1">${renderChildren(child.children)}</li>`
       }
       return ''
     })
